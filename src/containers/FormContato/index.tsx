@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { adicionarContato } from '../../store/reducers/contatosSlice'
 
 // O componente principal
-const FormularioContato: React.FC = () => {
+const FormContato: React.FC = () => {
   const dispatch = useDispatch() // Permite disparar ações para o Redux Store
 
   // Estados locais para armazenar os valores do formulário
@@ -32,40 +32,43 @@ const FormularioContato: React.FC = () => {
   }
   // O JSX para renderizar o formulário
   return (
-    <form onSubmit={formSubmitContato}>
-      <div>
-        <label>Nome:</label>
-        <input
-          type="text"
-          placeholder="Digite o nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          placeholder="Digite o email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Telefone:</label>
-        <input
-          type="tel"
-          placeholder="Digite o telefone"
-          value={telefone}
-          onChange={(e) => setTelefone(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Adicionar Contato</button>
-    </form>
+    <>
+      <h2>Adicionar Contato</h2>
+      <form onSubmit={formSubmitContato}>
+        <div>
+          <label>Nome:</label>
+          <input
+            type="text"
+            placeholder="Digite o nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            placeholder="Digite o email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Telefone:</label>
+          <input
+            type="tel"
+            placeholder="Digite o telefone"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Adicionar Contato</button>
+      </form>
+    </>
   )
 }
 
-export default FormularioContato
+export default FormContato

@@ -1,10 +1,11 @@
 import { Painel } from './styles'
-import FormularioContato from '../FormularioContato'
+import FormContato from '../FormContato'
+import FormBusca from '../FormBusca'
 
 const PainelLateral = () => (
   <Painel>
-    <h2>painel lateral</h2>
-    <FormularioContato />
+    <FormBusca />
+    <FormContato />
   </Painel>
 )
 

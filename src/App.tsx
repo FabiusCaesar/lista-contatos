@@ -2,7 +2,7 @@ import { Provider } from 'react-redux'
 import ListaContatos from './containers/ListaContatos'
 import EstiloGlobal, { Container } from './styles'
 import store from './store'
-import PainelLateral from './containers/PainelLateral/inex'
+import PainelLateral from './containers/PainelLateral'
 
 function App() {
   return (
