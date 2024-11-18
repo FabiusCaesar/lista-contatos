@@ -1,16 +1,18 @@
+import { Provider } from 'react-redux'
 import ListaContatos from './containers/ListaContatos'
-import Painel from './containers/Painel/inex'
 import EstiloGlobal, { Container } from './styles'
+import store from './store'
+import PainelLateral from './containers/PainelLateral/inex'
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <EstiloGlobal />
       <Container>
-        <Painel />
+        <PainelLateral />
         <ListaContatos />
       </Container>
-    </>
+    </Provider>
   )
 }
 

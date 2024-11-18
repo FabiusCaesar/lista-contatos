@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
 export const Contatos = styled.div`
-  background-color: gray;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 80%;
 `
