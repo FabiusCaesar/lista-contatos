@@ -3,9 +3,13 @@ import FormContato from '../FormContato'
 import FormBusca from '../FormBusca'
 import { useState } from 'react'
 
-const PainelLateral = () => {
-  const [contatosFiltrados, setContatosFiltrados] = useState([])
+interface PainelLateralProps {
+  setContatosFiltrados: (contatos: any[]) => void
+}
 
+const PainelLateral: React.FC<PainelLateralProps> = ({
+  setContatosFiltrados
+}) => {
   return (
     <Painel>
       <FormBusca setContatosFiltrados={setContatosFiltrados} />

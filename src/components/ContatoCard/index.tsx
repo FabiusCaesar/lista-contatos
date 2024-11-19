@@ -10,7 +10,7 @@ interface ContatoProps {
 const ContatoCard: React.FC<ContatoProps> = ({ nome, email, telefone }) => {
   return (
     <Card>
-      <h3>{nome}:</h3>
+      <h3>{nome}</h3>
       <p>{email}</p>
       <p>{telefone}</p>
     </Card>
