@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { adicionarContato } from '../../store/reducers/contatosSlice'
+import { adicionarContato } from '../../../store/reducers/contatosSlice'
+import * as S from '../styles'
 
 // O componente principal
 const FormContato: React.FC = () => {
@@ -34,10 +35,10 @@ const FormContato: React.FC = () => {
   return (
     <>
       <h2>Adicionar Contato</h2>
-      <form onSubmit={formSubmitContato}>
+      <S.Form onSubmit={formSubmitContato}>
         <div>
-          <label>Nome:</label>
-          <input
+          <S.Label>Nome:</S.Label>
+          <S.Input
             type="text"
             placeholder="Digite o nome"
             value={nome}
@@ -46,8 +47,8 @@ const FormContato: React.FC = () => {
           />
         </div>
         <div>
-          <label>Email:</label>
-          <input
+          <S.Label>Email:</S.Label>
+          <S.Input
             type="email"
             placeholder="Digite o email"
             value={email}
@@ -56,8 +57,8 @@ const FormContato: React.FC = () => {
           />
         </div>
         <div>
-          <label>Telefone:</label>
-          <input
+          <S.Label>Telefone:</S.Label>
+          <S.Input
             type="tel"
             placeholder="Digite o telefone"
             value={telefone}
@@ -66,7 +67,7 @@ const FormContato: React.FC = () => {
           />
         </div>
         <button type="submit">Adicionar Contato</button>
-      </form>
+      </S.Form>
     </>
   )
 }

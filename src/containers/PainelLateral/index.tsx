@@ -1,6 +1,6 @@
 import { Painel } from './styles'
-import FormContato from '../FormContato'
-import FormBusca from '../FormBusca'
+import FormContato from './FormContato'
+import FormBusca from './FormBusca'
 import { useState } from 'react'
 
 interface PainelLateralProps {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import * as S from './styles'
+import * as S from '../styles'
 import { useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
+import { RootReducer } from '../../../store'
 
 interface FormBuscaProps {
   setContatosFiltrados: (contatos: any[]) => void
@@ -33,27 +33,33 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
     <>
       <h2>Pesquisa</h2>
       <S.Form>
-        <label>Busca por nome:</label>
-        <input
-          type="text"
-          placeholder="Digite o nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        />
-        <label>Busca por email:</label>
-        <input
-          type="email"
-          placeholder="Digite o e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Busca por telefone:</label>
-        <input
-          type="tel"
-          placeholder="Digite o telefone"
-          value={telefone}
-          onChange={(e) => setTelefone(e.target.value)}
-        />
+        <div>
+          <S.Label>Busca por nome:</S.Label>
+          <S.Input
+            type="text"
+            placeholder="Digite o nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+        </div>
+        <div>
+          <S.Label>Busca por email:</S.Label>
+          <S.Input
+            type="email"
+            placeholder="Digite o e-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <S.Label>Busca por telefone:</S.Label>
+          <S.Input
+            type="tel"
+            placeholder="Digite o telefone"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value)}
+          />
+        </div>
       </S.Form>
     </>
   )
