@@ -6,4 +6,5 @@ export const Contatos = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
   width: 80%;
+  overflow-y: scroll;
 `

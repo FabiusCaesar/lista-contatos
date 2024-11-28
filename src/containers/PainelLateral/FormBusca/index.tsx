@@ -33,25 +33,25 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
     <>
       <h2>Pesquisa</h2>
       <S.Form>
-        <div>
-          <S.Label>Busca por nome:</S.Label>
+        <S.FieldGroup>
+          <S.Label>Busca:</S.Label>
           <S.Input
             type="text"
-            placeholder="Digite o nome"
+            placeholder="nome"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
           />
-        </div>
-        <div>
-          <S.Label>Busca por email:</S.Label>
+        </S.FieldGroup>
+        <S.FieldGroup>
+          <S.Label>Busca por:</S.Label>
           <S.Input
             type="email"
-            placeholder="Digite o e-mail"
+            placeholder="e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-        </div>
-        <div>
+        </S.FieldGroup>
+        <S.FieldGroup>
           <S.Label>Busca por telefone:</S.Label>
           <S.Input
             type="tel"
@@ -59,7 +59,7 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
             value={telefone}
             onChange={(e) => setTelefone(e.target.value)}
           />
-        </div>
+        </S.FieldGroup>
       </S.Form>
     </>
   )

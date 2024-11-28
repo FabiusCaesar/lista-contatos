@@ -36,7 +36,7 @@ const FormContato: React.FC = () => {
     <>
       <h2>Adicionar Contato</h2>
       <S.Form onSubmit={formSubmitContato}>
-        <div>
+        <S.FieldGroup>
           <S.Label>Nome:</S.Label>
           <S.Input
             type="text"
@@ -45,8 +45,8 @@ const FormContato: React.FC = () => {
             onChange={(e) => setNome(e.target.value)}
             required
           />
-        </div>
-        <div>
+        </S.FieldGroup>
+        <S.FieldGroup>
           <S.Label>Email:</S.Label>
           <S.Input
             type="email"
@@ -55,8 +55,8 @@ const FormContato: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </div>
-        <div>
+        </S.FieldGroup>
+        <S.FieldGroup>
           <S.Label>Telefone:</S.Label>
           <S.Input
             type="tel"
@@ -65,7 +65,7 @@ const FormContato: React.FC = () => {
             onChange={(e) => setTelefone(e.target.value)}
             required
           />
-        </div>
+        </S.FieldGroup>
         <button type="submit">Adicionar Contato</button>
       </S.Form>
     </>

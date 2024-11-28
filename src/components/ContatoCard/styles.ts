@@ -6,4 +6,13 @@ export const Card = styled.div`
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+  h3 {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 8px 0;
+  }
 `

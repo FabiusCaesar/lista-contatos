@@ -4,6 +4,14 @@ export const Painel = styled.aside`
   padding: 16px;
   height: 100vh;
 `
+
+export const FieldGroup = styled.div`
+  display: flex;
+  align-items: center; /* Alinha verticalmente label e input */
+  gap: 1rem; /* Espaço entre o label e o input */
+  width: 100%; /* Garante que o grupo ocupe toda a largura disponível */
+`
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -20,10 +28,10 @@ export const Label = styled.label`
   font-size: 1rem;
   font-weight: bold;
   color: #333;
-  margin-right: 8px;
 `
 
 export const Input = styled.input`
+  flex: 1; /* Faz o input ocupar o restante do espaço */
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
