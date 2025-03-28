@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import * as S from '../styles'
+import * as S from '../../../components/FormElements/styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
 
@@ -34,16 +34,14 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
       <h2>Pesquisa</h2>
       <S.Form>
         <S.FieldGroup>
-          <S.Label>Busca:</S.Label>
           <S.Input
             type="text"
-            placeholder="nome"
+            placeholder="Nome"
             value={nome}
             onChange={(e) => setNome(e.target.value)}
           />
         </S.FieldGroup>
         <S.FieldGroup>
-          <S.Label>Busca por:</S.Label>
           <S.Input
             type="email"
             placeholder="e-mail"
@@ -52,10 +50,9 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
           />
         </S.FieldGroup>
         <S.FieldGroup>
-          <S.Label>Busca por telefone:</S.Label>
           <S.Input
             type="tel"
-            placeholder="Digite o telefone"
+            placeholder="Telefone"
             value={telefone}
             onChange={(e) => setTelefone(e.target.value)}
           />

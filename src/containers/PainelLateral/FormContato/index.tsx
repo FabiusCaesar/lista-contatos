@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { adicionarContato } from '../../../store/reducers/contatosSlice'
-import * as S from '../styles'
+import * as S from '../../../components/FormElements/styles'
 
 // O componente principal
 const FormContato: React.FC = () => {

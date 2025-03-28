@@ -1,6 +1,6 @@
 import React from 'react'
 import ContatoCard from '../../components/ContatoCard'
-import Titulo from '../../components/Titulo'
+import Titulo from '../../styles'
 import { Contatos } from './styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -24,7 +24,7 @@ const ListaContatos: React.FC<ListaContatoProps> = ({ contatos }) => {
 
   return (
     <div>
-      <Titulo />
+      <Titulo>Contatos</Titulo>
       <Contatos>
         {contatosExibir.length === 0 ? (
           <p>Nenhum contato adicionado ainda.</p>
