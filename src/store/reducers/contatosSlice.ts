@@ -108,6 +108,42 @@ const initialState: ContatoState = {
       nome: 'Gabriel Santos',
       email: 'gabriel.santos@example.com',
       telefone: '654123987'
+    },
+    {
+      id: 17,
+      nome: 'Carla Mendes',
+      email: 'carla.mendes@example.com',
+      telefone: '7788123456'
+    },
+    {
+      id: 18,
+      nome: 'Lucas Almeida',
+      email: 'lucas.almeida@example.com',
+      telefone: '6688123456'
+    },
+    {
+      id: 19,
+      nome: 'Carla Silva',
+      email: 'carla.silva@example.com',
+      telefone: '5588123456'
+    },
+    {
+      id: 20,
+      nome: 'Juliana Oliveira',
+      email: 'juliana.oliveira@example.com',
+      telefone: '4488123456'
+    },
+    {
+      id: 21,
+      nome: 'Carlos Mendes',
+      email: 'carlos.mendes@example.com',
+      telefone: '3388123456'
+    },
+    {
+      id: 22,
+      nome: 'Fernanda Almeida',
+      email: 'fernanda.almeida@example.com',
+      telefone: '2288123456'
     }
   ]
 }

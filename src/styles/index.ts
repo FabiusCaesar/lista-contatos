@@ -10,8 +10,10 @@ const EstiloGlobal = createGlobalStyle`
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 30% 1fr;
-  margin-top: 24px;
+  grid-template-columns: 300px 1fr; /* Painel Lateral fixo + espaço restante para ListaContatos */
+  height: 100vh;
+  overflow: hidden; /* Evita scroll no container principal */
+  background-color: #f9f9f9;
 `
 
 export default EstiloGlobal
