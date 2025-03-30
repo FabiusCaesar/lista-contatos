@@ -1,33 +1,42 @@
 import React from 'react'
 import ContatoCard from '../../components/ContatoCard'
 import { TituloPrincipal } from '../../styles'
-import { Contatos, MainContentLayout } from './styles'
+import { Contatos, MainContentLayout, BotaoMenuMobile } from './styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
-interface ListaContatoProps {
-  contatos?: Array<{
+interface MainContentProps {
+  abrirMenu: () => void
+  contatosFiltrados: Array<{
     id: number
     nome: string
     email: string
     telefone: string
   }>
+  buscaAtiva: boolean
 }
 
-const MainContent: React.FC<ListaContatoProps> = ({ contatos }) => {
+const MainContent: React.FC<MainContentProps> = ({
+  abrirMenu,
+  contatosFiltrados,
+  buscaAtiva
+}) => {
   const todosContatos = useSelector(
     (state: RootReducer) => state.contatos.contatos
   )
 
-  // Usar os contatos passados por prop ou todos os contatos
-  const contatosExibir = contatos || todosContatos
+  console.log('buscaAtiva:', buscaAtiva)
+  console.log('contatosFiltrados:', contatosFiltrados)
+
+  const contatosExibir = buscaAtiva ? contatosFiltrados : todosContatos
 
   return (
     <MainContentLayout>
+      <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
       <TituloPrincipal>Contatos</TituloPrincipal>
       <Contatos>
         {contatosExibir.length === 0 ? (
-          <p>Nenhum contato adicionado ainda.</p>
+          <p>Nenhum contato encontrado.</p>
         ) : (
           // Lista de contatos
           contatosExibir.map((contato) => (

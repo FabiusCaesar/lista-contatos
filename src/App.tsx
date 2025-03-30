@@ -5,17 +5,32 @@ import { useState } from 'react'
 import GlobalStyle from './styles'
 import Sidebar from './containers/Sidebar'
 import MainContent from './containers/MainContent'
+import { Contato } from './models/Contatos'
 
 function App() {
   // Gerenciar o estado dos contatos filtrados
-  const [contatosFiltrados, setContatosFiltrados] = useState<any[]>([])
+  const [contatosFiltrados, setContatosFiltrados] = useState<Contato[]>([])
+
+  const [buscaAtiva, setBuscaAtiva] = useState(false)
+
+  // Menu Hamburguer Sidebar
+  const [menuAberto, setMenuAberto] = useState(false)
 
   return (
     <Provider store={store}>
       <GlobalStyle />
       <AppContainer>
-        <Sidebar setContatosFiltrados={setContatosFiltrados} />
-        <MainContent contatos={contatosFiltrados} />
+        <Sidebar
+          menuAberto={menuAberto}
+          fecharMenu={() => setMenuAberto(false)}
+          setContatosFiltrados={setContatosFiltrados}
+          setBuscaAtiva={setBuscaAtiva}
+        />
+        <MainContent
+          abrirMenu={() => setMenuAberto(true)}
+          contatosFiltrados={contatosFiltrados}
+          buscaAtiva={buscaAtiva}
+        />
       </AppContainer>
     </Provider>
   )

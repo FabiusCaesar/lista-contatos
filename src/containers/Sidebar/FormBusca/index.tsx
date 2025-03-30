@@ -6,9 +6,13 @@ import { TituloSecao } from '../../../styles'
 
 interface FormBuscaProps {
   setContatosFiltrados: (contatos: any[]) => void
+  setBuscaAtiva: (ativa: boolean) => void
 }
 
-const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
+const FormBusca: React.FC<FormBuscaProps> = ({
+  setContatosFiltrados,
+  setBuscaAtiva
+}) => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -16,6 +20,10 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
   const contatos = useSelector((state: RootReducer) => state.contatos.contatos)
 
   useEffect(() => {
+    const algumFiltroAtivo = nome !== '' || email !== '' || telefone !== ''
+
+    console.log('algumFiltroAtivo:', algumFiltroAtivo)
+
     const contatosFiltrados = contatos.filter((contato) => {
       return (
         (nome
@@ -27,8 +35,10 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
         (telefone ? contato.telefone.includes(telefone) : true)
       )
     })
+
     setContatosFiltrados(contatosFiltrados)
-  }, [nome, email, telefone, contatos, setContatosFiltrados])
+    setBuscaAtiva(algumFiltroAtivo)
+  }, [nome, email, telefone, contatos])
 
   return (
     <>

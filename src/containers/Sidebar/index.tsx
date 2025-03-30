@@ -3,14 +3,26 @@ import FormContato from './FormContato'
 import FormBusca from './FormBusca'
 import { useState } from 'react'
 
-interface PainelLateralProps {
+interface SidebarlProps {
+  menuAberto: boolean
+  fecharMenu: () => void
   setContatosFiltrados: (contatos: any[]) => void
+  setBuscaAtiva: (ativa: boolean) => void
 }
 
-const Sidebar: React.FC<PainelLateralProps> = ({ setContatosFiltrados }) => {
+const Sidebar: React.FC<SidebarlProps> = ({
+  menuAberto,
+  fecharMenu,
+  setContatosFiltrados,
+  setBuscaAtiva
+}) => {
   return (
-    <SidebarLayout>
-      <FormBusca setContatosFiltrados={setContatosFiltrados} />
+    <SidebarLayout $menuAberto={menuAberto}>
+      <button onClick={fecharMenu}>Fechar</button>
+      <FormBusca
+        setContatosFiltrados={setContatosFiltrados}
+        setBuscaAtiva={setBuscaAtiva}
+      />
       <FormContato />
     </SidebarLayout>
   )

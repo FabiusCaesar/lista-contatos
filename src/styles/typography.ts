@@ -1,13 +1,5 @@
 import styled from 'styled-components'
 
-export const Titulo = styled.h2`
-  display: block;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 18px;
-  font-weight: bold;
-`
-
 export const TituloPrincipal = styled.h2`
   text-align: center;
   margin: 40px 0;
