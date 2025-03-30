@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 
+export const MainContentLayout = styled.main`
+  padding: 40px;
+  height: 100vh;
+  overflow-y: auto; // <-- apenas rolagem vertical
+  overflow-x: hidden;
+`
+
 export const Contatos = styled.div`
-  margin-left: 500px; // mesmo valor do width do painel lateral
   padding: 24px;
   height: 100vh;
   overflow-y: scroll;

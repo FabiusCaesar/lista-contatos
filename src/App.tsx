@@ -1,9 +1,10 @@
 import { Provider } from 'react-redux'
-import ListaContatos from './containers/ListaContatos'
-import EstiloGlobal, { Container } from './styles'
+import { AppContainer } from './styles'
 import store from './store'
-import PainelLateral from './containers/PainelLateral'
 import { useState } from 'react'
+import GlobalStyle from './styles'
+import Sidebar from './containers/Sidebar'
+import MainContent from './containers/MainContent'
 
 function App() {
   // Gerenciar o estado dos contatos filtrados
@@ -11,11 +12,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <EstiloGlobal />
-      <Container>
-        <PainelLateral setContatosFiltrados={setContatosFiltrados} />
-        <ListaContatos contatos={contatosFiltrados} />
-      </Container>
+      <GlobalStyle />
+      <AppContainer>
+        <Sidebar setContatosFiltrados={setContatosFiltrados} />
+        <MainContent contatos={contatosFiltrados} />
+      </AppContainer>
     </Provider>
   )
 }

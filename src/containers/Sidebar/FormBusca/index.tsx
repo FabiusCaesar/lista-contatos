@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as S from '../../../components/FormElements/styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
+import { TituloSecao } from '../../../styles'
 
 interface FormBuscaProps {
   setContatosFiltrados: (contatos: any[]) => void
@@ -31,7 +32,7 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
 
   return (
     <>
-      <h2>Pesquisa</h2>
+      <TituloSecao>Pesquisa</TituloSecao>
       <S.Form>
         <S.FieldGroup>
           <S.Input

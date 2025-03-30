@@ -1,30 +1,19 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-const EstiloGlobal = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+  }
+
+  body {
+    background-color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 `
 
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto;
-`
+export default GlobalStyle
 
-export const MAinContainer = styled.main`
-  padding: 0 40px;
-  height: 100vh;
-  overflow-y: scroll;
-`
-
-export const Titulo = styled.h2`
-  display: block;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 18px;
-  font-weight: bold;
-`
-
-export default EstiloGlobal
+export * from './typography'
+export * from './layout'

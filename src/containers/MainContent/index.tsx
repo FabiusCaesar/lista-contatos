@@ -1,7 +1,7 @@
 import React from 'react'
 import ContatoCard from '../../components/ContatoCard'
-import Titulo from '../../styles'
-import { Contatos } from './styles'
+import { TituloPrincipal } from '../../styles'
+import { Contatos, MainContentLayout } from './styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
@@ -14,7 +14,7 @@ interface ListaContatoProps {
   }>
 }
 
-const ListaContatos: React.FC<ListaContatoProps> = ({ contatos }) => {
+const MainContent: React.FC<ListaContatoProps> = ({ contatos }) => {
   const todosContatos = useSelector(
     (state: RootReducer) => state.contatos.contatos
   )
@@ -23,8 +23,8 @@ const ListaContatos: React.FC<ListaContatoProps> = ({ contatos }) => {
   const contatosExibir = contatos || todosContatos
 
   return (
-    <div>
-      <Titulo>Contatos</Titulo>
+    <MainContentLayout>
+      <TituloPrincipal>Contatos</TituloPrincipal>
       <Contatos>
         {contatosExibir.length === 0 ? (
           <p>Nenhum contato adicionado ainda.</p>
@@ -40,8 +40,8 @@ const ListaContatos: React.FC<ListaContatoProps> = ({ contatos }) => {
           ))
         )}
       </Contatos>
-    </div>
+    </MainContentLayout>
   )
 }
 
-export default ListaContatos
+export default MainContent

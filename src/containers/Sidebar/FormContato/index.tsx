@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { adicionarContato } from '../../../store/reducers/contatosSlice'
 import * as S from '../../../components/FormElements/styles'
+import { TituloSecao } from '../../../styles'
 
 // O componente principal
 const FormContato: React.FC = () => {
@@ -34,7 +35,7 @@ const FormContato: React.FC = () => {
   // O JSX para renderizar o formulário
   return (
     <>
-      <h2>Adicionar Contato</h2>
+      <TituloSecao>Adicionar Contato</TituloSecao>
       <S.Form onSubmit={formSubmitContato}>
         <S.FieldGroup>
           <S.Label>Nome:</S.Label>
