@@ -24,6 +24,8 @@ const FormBusca: React.FC<FormBuscaProps> = ({
 
     console.log('algumFiltroAtivo:', algumFiltroAtivo)
 
+    setBuscaAtiva(algumFiltroAtivo)
+
     const contatosFiltrados = contatos.filter((contato) => {
       return (
         (nome
@@ -36,8 +38,9 @@ const FormBusca: React.FC<FormBuscaProps> = ({
       )
     })
 
+    console.log('contatosFiltrados (useEffect):', contatosFiltrados)
+
     setContatosFiltrados(contatosFiltrados)
-    setBuscaAtiva(algumFiltroAtivo)
   }, [nome, email, telefone, contatos])
 
   return (

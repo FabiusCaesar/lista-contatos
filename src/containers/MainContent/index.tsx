@@ -25,8 +25,7 @@ const MainContent: React.FC<MainContentProps> = ({
     (state: RootReducer) => state.contatos.contatos
   )
 
-  console.log('buscaAtiva:', buscaAtiva)
-  console.log('contatosFiltrados:', contatosFiltrados)
+  console.log('🚀 todosContatos (Redux):', todosContatos)
 
   const contatosExibir = buscaAtiva ? contatosFiltrados : todosContatos
 

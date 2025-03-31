@@ -2,6 +2,7 @@ import { SidebarLayout } from './styles'
 import FormContato from './FormContato'
 import FormBusca from './FormBusca'
 import { useState } from 'react'
+import { Contato } from '../../models/Contatos'
 
 interface SidebarlProps {
   menuAberto: boolean
@@ -23,7 +24,10 @@ const Sidebar: React.FC<SidebarlProps> = ({
         setContatosFiltrados={setContatosFiltrados}
         setBuscaAtiva={setBuscaAtiva}
       />
-      <FormContato />
+      <FormContato
+        setBuscaAtiva={setBuscaAtiva}
+        setContatosFiltrados={setContatosFiltrados}
+      />
     </SidebarLayout>
   )
 }

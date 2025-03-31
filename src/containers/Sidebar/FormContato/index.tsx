@@ -3,9 +3,18 @@ import { useDispatch } from 'react-redux'
 import { adicionarContato } from '../../../store/reducers/contatosSlice'
 import * as S from '../../../components/FormElements/styles'
 import { TituloSecao } from '../../../styles'
+import { Contato } from '../../../models/Contatos'
+
+interface FormContatoProps {
+  setBuscaAtiva: (ativa: boolean) => void
+  setContatosFiltrados: (contatos: Contato[]) => void
+}
 
 // O componente principal
-const FormContato: React.FC = () => {
+const FormContato: React.FC<FormContatoProps> = ({
+  setBuscaAtiva,
+  setContatosFiltrados
+}) => {
   const dispatch = useDispatch() // Permite disparar ações para o Redux Store
 
   // Estados locais para armazenar os valores do formulário
@@ -27,7 +36,11 @@ const FormContato: React.FC = () => {
 
     dispatch(adicionarContato(novoContato)) // Envia o contato ao Redux Store
 
-    // Reseta os campos do formulário
+    // Resetar busca e mostrar todos os contatos
+    setBuscaAtiva(false)
+    setContatosFiltrados([])
+
+    // Limpar os campos
     setNome('')
     setEmail('')
     setTelefone('')
