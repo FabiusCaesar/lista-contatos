@@ -5,7 +5,7 @@ import {
   Contatos,
   MainContentLayout,
   BotaoMenuMobile,
-  TituloFixo
+  TopoFixo
 } from './styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -35,10 +35,10 @@ const MainContent: React.FC<MainContentProps> = ({
 
   return (
     <MainContentLayout>
-      <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
-      <TituloFixo>
+      <TopoFixo>
         <TituloPrincipal>Contatos</TituloPrincipal>
-      </TituloFixo>
+        <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
+      </TopoFixo>
       <Contatos>
         {contatosParaExibir.length === 0 ? (
           <p>Nenhum contato encontrado.</p>

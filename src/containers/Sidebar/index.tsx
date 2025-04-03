@@ -1,4 +1,4 @@
-import { SidebarLayout } from './styles'
+import { BotaoFechar, SidebarLayout } from './styles'
 import FormContato from './FormContato'
 import FormBusca from './FormBusca'
 import { useState } from 'react'
@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <SidebarLayout $menuAberto={menuAberto}>
-      <button onClick={fecharMenu}>Fechar</button>
+      <BotaoFechar onClick={fecharMenu}>Fechar</BotaoFechar>
       <FormBusca setContatosFiltrados={setContatosFiltrados} />
       <FormContato />
     </SidebarLayout>

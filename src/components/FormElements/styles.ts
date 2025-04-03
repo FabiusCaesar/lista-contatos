@@ -1,12 +1,14 @@
 import styled from 'styled-components'
+import { breakpoints } from '../../styles/breakpoints'
 
 export const FieldGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
+  width: 100%; /* <- Adicionado para evitar que inputs "estourem" */
 
-  @media (max-width: 768px) {
+  @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -34,11 +36,14 @@ export const Input = styled.input`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
+  flex-grow: 1;
+  min-height: 0;
+  justify-content: flex-start;
+  gap: 2.5%; /* Espaço entre os campos proporcional à altura do pai */
+  padding: 5%; /* Padding interno também proporcional */
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 24px;
-  margin-bottom: 64px;
+  margin-top: 2%;
+  margin-bottom: 4%;
 `

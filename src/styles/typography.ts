@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints } from './breakpoints'
 
 export const TituloPrincipal = styled.h2`
   text-align: center;
@@ -6,6 +7,10 @@ export const TituloPrincipal = styled.h2`
   font-size: 24px;
   font-weight: bold;
   color: #333;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    margin: 10px 0;
+  }
 `
 
 export const TituloSecao = styled.h2`
