@@ -4,10 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
 import { TituloSecao } from '../../../styles'
 
-
-
-const FormBusca: React.FC<FormBuscaProps> = ({
-}) => {
+const FormBusca: React.FC<FormBuscaProps> = ({}) => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -15,7 +12,6 @@ const FormBusca: React.FC<FormBuscaProps> = ({
   const contatos = useSelector((state: RootReducer) => state.contatos.contatos)
 
   useEffect(() => {
-
     const contatosFiltrados = contatos.filter((contato) => {
       return (
         (nome
@@ -27,7 +23,6 @@ const FormBusca: React.FC<FormBuscaProps> = ({
         (telefone ? contato.telefone.includes(telefone) : true)
       )
     })
-
 
     setContatosFiltrados(contatosFiltrados)
   }, [nome, email, telefone, contatos])

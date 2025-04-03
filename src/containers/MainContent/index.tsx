@@ -15,13 +15,10 @@ interface MainContentProps {
   }>
 }
 
-const MainContent: React.FC<MainContentProps> = ({
-  abrirMenu
-}) => {
+const MainContent: React.FC<MainContentProps> = ({ abrirMenu }) => {
   const todosContatos = useSelector(
     (state: RootReducer) => state.contatos.contatos
   )
-
 
   return (
     <MainContentLayout>

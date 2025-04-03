@@ -9,7 +9,6 @@ import { Contato } from './models/Contatos'
 
 function App() {
 
-
   // Menu Hamburguer Sidebar
   const [menuAberto, setMenuAberto] = useState(false)
 

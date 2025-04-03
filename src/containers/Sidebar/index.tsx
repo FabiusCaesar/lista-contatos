@@ -9,10 +9,7 @@ interface SidebarlProps {
   fecharMenu: () => void
 }
 
-const Sidebar: React.FC<SidebarlProps> = ({
-  menuAberto,
-  fecharMenu,
-}) => {
+const Sidebar: React.FC<SidebarlProps> = ({ menuAberto, fecharMenu }) => {
   return (
     <SidebarLayout $menuAberto={menuAberto}>
       <button onClick={fecharMenu}>Fechar</button>

@@ -5,11 +5,8 @@ import * as S from '../../../components/FormElements/styles'
 import { TituloSecao } from '../../../styles'
 import { Contato } from '../../../models/Contatos'
 
-
-
 // O componente principal
-const FormContato: React.FC<FormContatoProps> = ({
-}) => {
+const FormContato: React.FC<FormContatoProps> = ({}) => {
   const dispatch = useDispatch() // Permite disparar ações para o Redux Store
 
   // Estados locais para armazenar os valores do formulário
