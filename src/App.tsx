@@ -8,9 +8,11 @@ import MainContent from './containers/MainContent'
 import { Contato } from './models/Contatos'
 
 function App() {
-
   // Menu Hamburguer Sidebar
   const [menuAberto, setMenuAberto] = useState(false)
+
+  //Estado para busca
+  const [contatosFiltrados, setContatosFiltrados] = useState<Contato[]>([])
 
   return (
     <Provider store={store}>
@@ -19,9 +21,11 @@ function App() {
         <Sidebar
           menuAberto={menuAberto}
           fecharMenu={() => setMenuAberto(false)}
+          setContatosFiltrados={setContatosFiltrados}
         />
         <MainContent
           abrirMenu={() => setMenuAberto(true)}
+          contatosFiltrados={contatosFiltrados}
         />
       </AppContainer>
     </Provider>

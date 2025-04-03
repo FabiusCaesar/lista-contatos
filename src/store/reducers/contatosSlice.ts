@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Contato } from '../../models/Contatos'
-
+import { Contato, ContatoState } from '../../models/Contatos'
 
 const initialState: ContatoState = {
   contatos: [

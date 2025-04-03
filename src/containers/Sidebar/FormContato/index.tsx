@@ -6,7 +6,7 @@ import { TituloSecao } from '../../../styles'
 import { Contato } from '../../../models/Contatos'
 
 // O componente principal
-const FormContato: React.FC<FormContatoProps> = ({}) => {
+const FormContato: React.FC = () => {
   const dispatch = useDispatch() // Permite disparar ações para o Redux Store
 
   // Estados locais para armazenar os valores do formulário
@@ -19,7 +19,7 @@ const FormContato: React.FC<FormContatoProps> = ({}) => {
     event.preventDefault() // Evita o recarregamento da página
 
     // Criando o objeto do novo contato
-    const novoContato = {
+    const novoContato: Contato = {
       id: Date.now(), // Gera um ID único com base no timestamp atual
       nome,
       email,
@@ -27,10 +27,6 @@ const FormContato: React.FC<FormContatoProps> = ({}) => {
     }
 
     dispatch(adicionarContato(novoContato)) // Envia o contato ao Redux Store
-
-    // Resetar busca e mostrar todos os contatos
-    setBuscaAtiva(false)
-    setContatosFiltrados([])
 
     // Limpar os campos
     setNome('')

@@ -3,8 +3,13 @@ import * as S from '../../../components/FormElements/styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
 import { TituloSecao } from '../../../styles'
+import { Contato } from '../../../models/Contatos'
 
-const FormBusca: React.FC<FormBuscaProps> = ({}) => {
+interface FormBuscaProps {
+  setContatosFiltrados: React.Dispatch<React.SetStateAction<Contato[]>>
+}
+
+const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -12,7 +17,8 @@ const FormBusca: React.FC<FormBuscaProps> = ({}) => {
   const contatos = useSelector((state: RootReducer) => state.contatos.contatos)
 
   useEffect(() => {
-    const contatosFiltrados = contatos.filter((contato) => {
+    // Lógica do filtro
+    const contatosFiltrados = contatos.filter((contato: Contato) => {
       return (
         (nome
           ? contato.nome.toLowerCase().includes(nome.toLowerCase())

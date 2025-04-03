@@ -1,35 +1,50 @@
 import React from 'react'
 import ContatoCard from '../../components/ContatoCard'
 import { TituloPrincipal } from '../../styles'
-import { Contatos, MainContentLayout, BotaoMenuMobile } from './styles'
+import {
+  Contatos,
+  MainContentLayout,
+  BotaoMenuMobile,
+  TituloFixo
+} from './styles'
 import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+import { Contato } from '../../models/Contatos'
 
 interface MainContentProps {
   abrirMenu: () => void
-  contatosFiltrados: Array<{
-    id: number
-    nome: string
-    email: string
-    telefone: string
-  }>
+  contatosFiltrados: Contato[]
 }
 
-const MainContent: React.FC<MainContentProps> = ({ abrirMenu }) => {
+const MainContent: React.FC<MainContentProps> = ({
+  abrirMenu,
+  contatosFiltrados
+}) => {
   const todosContatos = useSelector(
     (state: RootReducer) => state.contatos.contatos
   )
 
+  const contatosParaExibir =
+    contatosFiltrados.length > 0 || isAlgumFiltroAtivo(contatosFiltrados)
+      ? contatosFiltrados
+      : todosContatos
+
+  function isAlgumFiltroAtivo(lista: Contato[]) {
+    return lista.length !== todosContatos.length
+  }
+
   return (
     <MainContentLayout>
       <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
-      <TituloPrincipal>Contatos</TituloPrincipal>
+      <TituloFixo>
+        <TituloPrincipal>Contatos</TituloPrincipal>
+      </TituloFixo>
       <Contatos>
-        {contatosExibir.length === 0 ? (
+        {contatosParaExibir.length === 0 ? (
           <p>Nenhum contato encontrado.</p>
         ) : (
           // Lista de contatos
-          contatosExibir.map((contato) => (
+          contatosParaExibir.map((contato: Contato) => (
             <ContatoCard
               key={contato.id}
               nome={contato.nome}

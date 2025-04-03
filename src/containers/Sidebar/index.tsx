@@ -4,16 +4,21 @@ import FormBusca from './FormBusca'
 import { useState } from 'react'
 import { Contato } from '../../models/Contatos'
 
-interface SidebarlProps {
+interface SidebarProps {
   menuAberto: boolean
   fecharMenu: () => void
+  setContatosFiltrados: React.Dispatch<React.SetStateAction<Contato[]>>
 }
 
-const Sidebar: React.FC<SidebarlProps> = ({ menuAberto, fecharMenu }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  menuAberto,
+  fecharMenu,
+  setContatosFiltrados
+}) => {
   return (
     <SidebarLayout $menuAberto={menuAberto}>
       <button onClick={fecharMenu}>Fechar</button>
-      <FormBusca />
+      <FormBusca setContatosFiltrados={setContatosFiltrados} />
       <FormContato />
     </SidebarLayout>
   )

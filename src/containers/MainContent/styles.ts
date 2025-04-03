@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 
 export const MainContentLayout = styled.main`
-  padding: 40px;
+  padding: 0 40px 40px 40px;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -27,8 +27,6 @@ export const BotaoMenuMobile = styled.button`
 
 export const Contatos = styled.div`
   padding: 24px;
-  height: 100vh;
-  overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
@@ -40,4 +38,13 @@ export const Contatos = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     grid-template-columns: 1fr; // celulares
   }
+`
+
+export const TituloFixo = styled.div`
+  position: sticky;
+  padding-top: 40px;
+  top: 0;
+  background-color: white;
+  padding-bottom: 16px;
+  z-index: 10;
 `
