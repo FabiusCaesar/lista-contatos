@@ -9,7 +9,7 @@ export const SidebarLayout = styled.aside<{ $menuAberto: boolean }>`
   justify-content: flex-start;
   padding: 1rem;
   background-color: #f9f9f9;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  //box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   gap: 2.5%;
 
   @media (max-width: ${breakpoints.mobile}) {
@@ -31,7 +31,7 @@ export const BotaoFechar = styled.button`
   border: none;
   margin-bottom: 16px;
 
-  @media (max-width: ${breakpoints.tablet}) {
+  @media (max-width: ${breakpoints.mobile}) {
     display: block;
   }
 `

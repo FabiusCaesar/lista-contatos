@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ContatoCard from '../../components/ContatoCard'
 import { TituloPrincipal } from '../../styles'
 import {
   Contatos,
   MainContentLayout,
   BotaoMenuMobile,
-  TopoFixo
+  TopoFixo,
+  BotaoRemover
 } from './styles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { Contato } from '../../models/Contatos'
+import { removerContato } from '../../store/reducers/contatosSlice'
 
 interface MainContentProps {
   abrirMenu: () => void
@@ -20,9 +22,23 @@ const MainContent: React.FC<MainContentProps> = ({
   abrirMenu,
   contatosFiltrados
 }) => {
+  const dispatch = useDispatch()
   const todosContatos = useSelector(
     (state: RootReducer) => state.contatos.contatos
   )
+
+  const [selecionados, setSelecionados] = useState<number[]>([])
+
+  const alternarSelecao = (id: number) => {
+    setSelecionados((prev) =>
+      prev.includes(id) ? prev.filter((sel) => sel !== id) : [...prev, id]
+    )
+  }
+
+  const removerSelecionados = () => {
+    selecionados.forEach((id) => dispatch(removerContato(id)))
+    setSelecionados([])
+  }
 
   const contatosParaExibir =
     contatosFiltrados.length > 0 || isAlgumFiltroAtivo(contatosFiltrados)
@@ -37,6 +53,12 @@ const MainContent: React.FC<MainContentProps> = ({
     <MainContentLayout>
       <TopoFixo>
         <TituloPrincipal>Contatos</TituloPrincipal>
+        <BotaoRemover
+          onClick={removerSelecionados}
+          disabled={selecionados.length === 0}
+        >
+          Remover Selecionados
+        </BotaoRemover>
         <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
       </TopoFixo>
       <Contatos>
@@ -50,6 +72,8 @@ const MainContent: React.FC<MainContentProps> = ({
               nome={contato.nome}
               email={contato.email}
               telefone={contato.telefone}
+              selecionado={selecionados.includes(contato.id)}
+              aoSelecionar={() => alternarSelecao(contato.id)}
             />
           ))
         )}

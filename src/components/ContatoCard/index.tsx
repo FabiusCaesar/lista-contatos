@@ -5,11 +5,19 @@ interface ContatoProps {
   nome: string
   email: string
   telefone: string
+  selecionado?: boolean
+  aoSelecionar?: () => void
 }
 
-const ContatoCard: React.FC<ContatoProps> = ({ nome, email, telefone }) => {
+const ContatoCard: React.FC<ContatoProps> = ({
+  nome,
+  email,
+  telefone,
+  selecionado = false,
+  aoSelecionar
+}) => {
   return (
-    <Card>
+    <Card $selecionado={selecionado} onClick={aoSelecionar}>
       <h3>{nome}</h3>
       <p>{email}</p>
       <p>{telefone}</p>
