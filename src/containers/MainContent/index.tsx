@@ -11,7 +11,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { Contato } from '../../models/Contatos'
-import { removerContato } from '../../store/reducers/contatosSlice'
+import {
+  editarContato,
+  removerContato
+} from '../../store/reducers/contatosSlice'
 
 interface MainContentProps {
   abrirMenu: () => void
@@ -38,6 +41,15 @@ const MainContent: React.FC<MainContentProps> = ({
   const removerSelecionados = () => {
     selecionados.forEach((id) => dispatch(removerContato(id)))
     setSelecionados([])
+  }
+
+  const handleEditarContato = (
+    id: number,
+    nome: string,
+    email: string,
+    telefone: string
+  ) => {
+    dispatch(editarContato({ id, dadosAtualizados: { nome, email, telefone } }))
   }
 
   const contatosParaExibir =
@@ -74,6 +86,9 @@ const MainContent: React.FC<MainContentProps> = ({
               telefone={contato.telefone}
               selecionado={selecionados.includes(contato.id)}
               aoSelecionar={() => alternarSelecao(contato.id)}
+              aoEditar={(nome, email, telefone) =>
+                handleEditarContato(contato.id, nome, email, telefone)
+              }
             />
           ))
         )}
