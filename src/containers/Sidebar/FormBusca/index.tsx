@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootReducer } from '../../../store'
 import { TituloSecao } from '../../../styles'
 import { Contato } from '../../../models/Contatos'
+import Botao from '../../../components/Botao'
 
 interface FormBuscaProps {
   setContatosFiltrados: React.Dispatch<React.SetStateAction<Contato[]>>
@@ -33,6 +34,12 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
     setContatosFiltrados(contatosFiltrados)
   }, [nome, email, telefone, contatos])
 
+  const handleLimparCampos = () => {
+    setNome('')
+    setEmail('')
+    setTelefone('')
+  }
+
   return (
     <>
       <TituloSecao>Pesquisa</TituloSecao>
@@ -61,6 +68,13 @@ const FormBusca: React.FC<FormBuscaProps> = ({ setContatosFiltrados }) => {
             onChange={(e) => setTelefone(e.target.value)}
           />
         </S.FieldGroup>
+        <Botao
+          variante="primarioOutline"
+          onClick={handleLimparCampos}
+          disabled={!nome && !email && !telefone}
+        >
+          Limpar
+        </Botao>
       </S.Form>
     </>
   )

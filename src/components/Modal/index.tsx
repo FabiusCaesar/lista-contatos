@@ -13,6 +13,7 @@ import {
 interface ConfirmationDialogProps {
   open: boolean
   title: string
+  text: string
   content: ReactNode
   onConfirm: () => void
   onCancel: () => void
@@ -27,6 +28,7 @@ const darkTheme = createTheme({
 const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
   open,
   title,
+  text,
   content,
   onConfirm,
   onCancel
@@ -40,7 +42,12 @@ const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
         aria-describedby="confirmation-dialog-description"
       >
         <DialogTitle id="confirmation-dialog-title">{title}</DialogTitle>
-        <DialogContent>{content}</DialogContent>
+        <DialogContent>
+          <DialogContentText id="confirmation-dialog-description">
+            {text}
+          </DialogContentText>
+          {content}
+        </DialogContent>
         <DialogActions>
           <Button
             onClick={onCancel}

@@ -38,7 +38,7 @@ export const Form = styled.form`
   flex-direction: column;
   flex-grow: 1;
   min-height: 0;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 2.5%; /* Espaço entre os campos proporcional à altura do pai */
   padding: 5%; /* Padding interno também proporcional */
   background-color: #f9f9f9;

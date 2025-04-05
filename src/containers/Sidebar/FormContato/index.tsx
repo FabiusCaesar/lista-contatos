@@ -5,6 +5,7 @@ import * as S from '../../../components/FormElements/styles'
 import { TituloSecao } from '../../../styles'
 import { Contato } from '../../../models/Contatos'
 import ConfirmationDialog from '../../../components/Modal'
+import Botao from '../../../components/Botao'
 
 // O componente principal
 const FormContato: React.FC = () => {
@@ -78,15 +79,17 @@ const FormContato: React.FC = () => {
             required
           />
         </S.FieldGroup>
-        <button type="submit">Adicionar Contato</button>
+        <Botao type="submit" variante="primario">
+          Adicionar Contato
+        </Botao>
       </S.Form>
 
       <ConfirmationDialog // Modal de Confirmação
         open={confirmOpen}
         title="Confirmar Adição de Novo contato"
+        text="Será adicionado o seguinte contato:"
         content={
           <>
-            <p>Será adicionado o seguinte contato:</p>
             <strong>Nome:</strong> {nome}
             <br />
             <strong>Email:</strong> {email}

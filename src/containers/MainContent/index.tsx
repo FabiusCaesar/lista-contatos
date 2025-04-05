@@ -16,6 +16,7 @@ import {
   removerContato
 } from '../../store/reducers/contatosSlice'
 import ConfirmationDialog from '../../components/Modal'
+import Botao from '../../components/Botao'
 
 interface MainContentProps {
   abrirMenu: () => void
@@ -68,12 +69,13 @@ const MainContent: React.FC<MainContentProps> = ({
     <MainContentLayout>
       <TopoFixo>
         <TituloPrincipal>Contatos</TituloPrincipal>
-        <BotaoRemover
+        <Botao
+          variante="remover"
           onClick={() => setConfirmOpen(true)}
           disabled={selecionados.length === 0}
         >
           Remover Selecionados
-        </BotaoRemover>
+        </Botao>
         <BotaoMenuMobile onClick={abrirMenu}>☰</BotaoMenuMobile>
       </TopoFixo>
       <Contatos>
@@ -100,13 +102,14 @@ const MainContent: React.FC<MainContentProps> = ({
       <ConfirmationDialog // Modal de Confirmação
         open={confirmOpen}
         title="Confirmar Remoção"
-        content={`Tem certeza que deseja remover o${
+        text={`Tem certeza que deseja remover o${
           selecionados.length > 1 ? 's' : ''
         } ${selecionados.length > 1 ? selecionados.length : ''} contato${
           selecionados.length > 1 ? 's' : ''
         } selecionado${selecionados.length > 1 ? 's' : ''}?`}
         onConfirm={handleConfirmarRemocao}
         onCancel={() => setConfirmOpen(false)}
+        content=""
       />
     </MainContentLayout>
   )

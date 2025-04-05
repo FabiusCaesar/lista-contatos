@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Card, Input } from './styles'
 import ConfirmationDialog from '../Modal'
+import Botao from '../Botao'
 
 interface ContatoProps {
   nome: string
@@ -73,24 +74,30 @@ const ContatoCard: React.FC<ContatoProps> = ({
             value={telefoneEditado}
             onChange={(e) => setTelefoneEditado(e.target.value)}
           />
-          <Button onClick={handleSalvar}>Salvar</Button>
-          <Button onClick={handleCancelar}>Cancelar</Button>
+          <Botao variante="confirmar" onClick={handleSalvar}>
+            Salvar
+          </Botao>
+          <Botao variante="cancelar" onClick={handleCancelar}>
+            Cancelar
+          </Botao>
         </>
       ) : (
         <>
           <h3>{nome}</h3>
           <p>{email}</p>
           <p>{telefone}</p>
-          <Button onClick={handleEditar}>Editar</Button>
+          <Botao variante="secundario" onClick={handleEditar}>
+            Editar
+          </Botao>
         </>
       )}
 
       <ConfirmationDialog // Modal de Confirmação
         open={confirmOpen}
         title="Confirmar Edição"
+        text="O contato será salvo como:"
         content={
           <>
-            <p>O contato será salvo como:</p>
             <strong>Nome:</strong> {nomeEditado}
             <br />
             <strong>Email:</strong> {emailEditado}
