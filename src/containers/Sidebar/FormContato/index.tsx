@@ -4,6 +4,7 @@ import { adicionarContato } from '../../../store/reducers/contatosSlice'
 import * as S from '../../../components/FormElements/styles'
 import { TituloSecao } from '../../../styles'
 import { Contato } from '../../../models/Contatos'
+import ConfirmationDialog from '../../../components/Modal'
 
 // O componente principal
 const FormContato: React.FC = () => {
@@ -13,6 +14,8 @@ const FormContato: React.FC = () => {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
+  const [confirmOpen, setConfirmOpen] = useState(false)
+  const [novoContato, setNovoContato] = useState<Contato | null>(null)
 
   // Função que será chamada quando o formulário for enviado
   const formSubmitContato = (event: React.FormEvent) => {
@@ -25,13 +28,20 @@ const FormContato: React.FC = () => {
       email,
       telefone
     }
+    setNovoContato(novoContato)
+    setConfirmOpen(true)
+  }
+  const handleConfirmarAdicao = () => {
+    if (novoContato) {
+      dispatch(adicionarContato(novoContato)) // Envia o contato ao Redux Store
 
-    dispatch(adicionarContato(novoContato)) // Envia o contato ao Redux Store
-
-    // Limpar os campos
-    setNome('')
-    setEmail('')
-    setTelefone('')
+      // Limpar os campos
+      setNome('')
+      setEmail('')
+      setTelefone('')
+      setNovoContato(null)
+      setConfirmOpen(false)
+    }
   }
   // O JSX para renderizar o formulário
   return (
@@ -70,6 +80,23 @@ const FormContato: React.FC = () => {
         </S.FieldGroup>
         <button type="submit">Adicionar Contato</button>
       </S.Form>
+
+      <ConfirmationDialog // Modal de Confirmação
+        open={confirmOpen}
+        title="Confirmar Adição de Novo contato"
+        content={
+          <>
+            <p>Será adicionado o seguinte contato:</p>
+            <strong>Nome:</strong> {nome}
+            <br />
+            <strong>Email:</strong> {email}
+            <br />
+            <strong>Telefone:</strong> {telefone}
+          </>
+        }
+        onConfirm={handleConfirmarAdicao}
+        onCancel={() => setConfirmOpen(false)}
+      />
     </>
   )
 }

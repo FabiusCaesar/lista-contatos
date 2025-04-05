@@ -15,6 +15,7 @@ import {
   editarContato,
   removerContato
 } from '../../store/reducers/contatosSlice'
+import ConfirmationDialog from '../../components/Modal'
 
 interface MainContentProps {
   abrirMenu: () => void
@@ -31,6 +32,7 @@ const MainContent: React.FC<MainContentProps> = ({
   )
 
   const [selecionados, setSelecionados] = useState<number[]>([])
+  const [confirmOpen, setConfirmOpen] = useState(false)
 
   const alternarSelecao = (id: number) => {
     setSelecionados((prev) =>
@@ -38,9 +40,10 @@ const MainContent: React.FC<MainContentProps> = ({
     )
   }
 
-  const removerSelecionados = () => {
+  const handleConfirmarRemocao = () => {
     selecionados.forEach((id) => dispatch(removerContato(id)))
     setSelecionados([])
+    setConfirmOpen(false)
   }
 
   const handleEditarContato = (
@@ -66,7 +69,7 @@ const MainContent: React.FC<MainContentProps> = ({
       <TopoFixo>
         <TituloPrincipal>Contatos</TituloPrincipal>
         <BotaoRemover
-          onClick={removerSelecionados}
+          onClick={() => setConfirmOpen(true)}
           disabled={selecionados.length === 0}
         >
           Remover Selecionados
@@ -93,6 +96,18 @@ const MainContent: React.FC<MainContentProps> = ({
           ))
         )}
       </Contatos>
+
+      <ConfirmationDialog // Modal de Confirmação
+        open={confirmOpen}
+        title="Confirmar Remoção"
+        content={`Tem certeza que deseja remover o${
+          selecionados.length > 1 ? 's' : ''
+        } ${selecionados.length > 1 ? selecionados.length : ''} contato${
+          selecionados.length > 1 ? 's' : ''
+        } selecionado${selecionados.length > 1 ? 's' : ''}?`}
+        onConfirm={handleConfirmarRemocao}
+        onCancel={() => setConfirmOpen(false)}
+      />
     </MainContentLayout>
   )
 }

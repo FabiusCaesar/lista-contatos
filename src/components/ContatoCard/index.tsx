@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Card, Input } from './styles'
+import ConfirmationDialog from '../Modal'
 
 interface ContatoProps {
   nome: string
@@ -22,6 +23,7 @@ const ContatoCard: React.FC<ContatoProps> = ({
   const [nomeEditado, setNomeEditado] = useState(nome)
   const [emailEditado, setEmailEditado] = useState(email)
   const [telefoneEditado, setTelefoneEditado] = useState(telefone)
+  const [confirmOpen, setConfirmOpen] = useState(false)
 
   const handleEditar = (event: React.MouseEvent) => {
     event.stopPropagation()
@@ -38,11 +40,15 @@ const ContatoCard: React.FC<ContatoProps> = ({
 
   const handleSalvar = (event: React.MouseEvent) => {
     event.stopPropagation()
+    setConfirmOpen(true)
+  }
+
+  const confirmarEdicao = () => {
     if (aoEditar) {
       aoEditar(nomeEditado, emailEditado, telefoneEditado)
     }
+    setConfirmOpen(false)
     setEmEdicao(false)
-    // Exibir confirmação após salvar, se necessário
   }
 
   return (
@@ -78,6 +84,23 @@ const ContatoCard: React.FC<ContatoProps> = ({
           <Button onClick={handleEditar}>Editar</Button>
         </>
       )}
+
+      <ConfirmationDialog // Modal de Confirmação
+        open={confirmOpen}
+        title="Confirmar Edição"
+        content={
+          <>
+            <p>O contato será salvo como:</p>
+            <strong>Nome:</strong> {nomeEditado}
+            <br />
+            <strong>Email:</strong> {emailEditado}
+            <br />
+            <strong>Telefone:</strong> {telefoneEditado}
+          </>
+        }
+        onConfirm={confirmarEdicao}
+        onCancel={() => setConfirmOpen(false)}
+      />
     </Card>
   )
 }
