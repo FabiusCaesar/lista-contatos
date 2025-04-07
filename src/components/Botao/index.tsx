@@ -1,19 +1,18 @@
-// src/components/Botao/index.tsx
-
 import React from 'react'
 import styled, { css } from 'styled-components'
+import colors from '../../styles/colors'
 
 const estilos = {
   primario: css`
     background-color: #007bff;
-    color: white;
+    color: ${colors.textoClaro};
     border: none;
 
     padding: 10px 20px;
     font-size: 16px;
 
     &:hover:not(:disabled) {
-      background-color: #0056b3;
+      background-color: ${colors.azulMarinho};
     }
 
     &:active:not(:disabled) {
@@ -35,7 +34,9 @@ const estilos = {
     font-size: 16px;
 
     &:hover:not(:disabled) {
-      background-color: rgba(0, 123, 255, 0.05);
+      background-color: ${colors.azulMarinho};
+      border: 2px solid ${colors.azulMarinho};
+      color: ${colors.textoClaro};
     }
 
     &:active:not(:disabled) {
@@ -50,7 +51,7 @@ const estilos = {
   `,
   secundario: css`
     background-color: #007bff;
-    color: white;
+    color: ${colors.textoClaro};
     border: 2px solid #007bff;
 
     margin: 4px 8px;
@@ -58,8 +59,8 @@ const estilos = {
     font-size: 14px;
 
     &:hover:not(:disabled) {
-      background-color: #0056b3;
-      border: 2px solid #0056b3;
+      background-color: ${colors.azulMarinho};
+      border: 2px solid ${colors.azulMarinho};
     }
 
     &:active:not(:disabled) {
@@ -74,7 +75,7 @@ const estilos = {
   `,
   remover: css`
     background-color: #dc3545;
-    color: white;
+    color: ${colors.textoClaro};
     border: none;
 
     margin: 4px 8px;
@@ -82,7 +83,7 @@ const estilos = {
     font-size: 14px;
 
     &:hover:not(:disabled) {
-      background-color: #b52a37;
+      background-color: ${colors.azulMarinho};
     }
 
     &:active:not(:disabled) {
@@ -105,7 +106,9 @@ const estilos = {
     font-size: 14px;
 
     &:hover:not(:disabled) {
-      background-color: rgba(40, 167, 69, 0.05);
+      background-color: ${colors.azulMarinho};
+      border: 2px solid ${colors.azulMarinho};
+      color: ${colors.textoClaro};
     }
 
     &:active:not(:disabled) {
@@ -128,7 +131,9 @@ const estilos = {
     font-size: 14px;
 
     &:hover:not(:disabled) {
-      background-color: rgba(220, 53, 69, 0.05);
+      background-color: ${colors.azulMarinho};
+      border: 2px solid ${colors.azulMarinho};
+      color: ${colors.textoClaro};
     }
 
     &:active:not(:disabled) {

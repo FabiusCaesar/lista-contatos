@@ -14,7 +14,7 @@ export const MainContentLayout = styled.main`
 `
 
 export const Contatos = styled.div`
-  padding: 0 32px 32px;
+  padding: 16px 32px 32px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
@@ -38,6 +38,7 @@ export const TopoFixo = styled.div`
   flex-direction: column; // Alinha verticalmente por padrão
   align-items: center;
   gap: 8px; // Espaço entre o título e o botão
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: row; // Em mobile, alinha horizontalmente

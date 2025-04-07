@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card, Input } from './styles'
+import { Card, Input } from './styles'
 import ConfirmationDialog from '../Modal'
 import Botao from '../Botao'
 

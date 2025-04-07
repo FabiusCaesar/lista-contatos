@@ -1,10 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
+import '@fontsource/roboto'
 
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
 
   button {
@@ -13,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 `
 

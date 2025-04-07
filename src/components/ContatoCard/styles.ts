@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import '@fontsource/roboto-mono' // Fonte monoespaçada para modo de edição
 
 interface CardProps {
   $selecionado: boolean
@@ -41,6 +42,7 @@ export const Input = styled.input`
   background-color: transparent;
   outline: none;
   text-align: center;
+  font-family: 'Roboto Mono';
 
   &:focus {
     border-color: #007bff;
