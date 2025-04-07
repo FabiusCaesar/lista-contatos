@@ -4,7 +4,7 @@ import colors from '../../styles/colors'
 
 const estilos = {
   primario: css`
-    background-color: #007bff;
+    background-color: ${colors.azulPrincipal};
     color: ${colors.textoClaro};
     border: none;
 
@@ -20,15 +20,15 @@ const estilos = {
     }
 
     &:disabled {
-      background-color: #ccc;
-      color: #666;
+      background-color: ${colors.cinzaIntermediario};
+      color: ${colors.cinzaEscuro};
       cursor: not-allowed;
     }
   `,
   primarioOutline: css`
     background-color: transparent;
-    color: #007bff;
-    border: 2px solid #007bff;
+    color: ${colors.azulPrincipal};
+    border: 2px solid ${colors.azulPrincipal};
 
     padding: 10px 20px;
     font-size: 16px;
@@ -44,15 +44,15 @@ const estilos = {
     }
 
     &:disabled {
-      color: #999;
-      border-color: #ccc;
+      color: ${colors.cinzaIntermediario};
+      border-color: ${colors.cinzaIntermediario};
       cursor: not-allowed;
     }
   `,
   secundario: css`
-    background-color: #007bff;
+    background-color: ${colors.azulPrincipal};
     color: ${colors.textoClaro};
-    border: 2px solid #007bff;
+    border: 2px solid ${colors.azulPrincipal};
 
     margin: 4px 8px;
     padding: 6px 12px;
@@ -68,13 +68,13 @@ const estilos = {
     }
 
     &:disabled {
-      background-color: #ccc;
-      color: #666;
+      background-color: ${colors.cinzaIntermediario};
+      color: ${colors.cinzaEscuro};
       cursor: not-allowed;
     }
   `,
   remover: css`
-    background-color: #dc3545;
+    background-color: ${colors.vermelhoAlerta};
     color: ${colors.textoClaro};
     border: none;
 
@@ -91,15 +91,15 @@ const estilos = {
     }
 
     &:disabled {
-      background-color: #ccc;
-      color: #666;
+      background-color: ${colors.cinzaIntermediario};
+      color: ${colors.textoEscuro};
       cursor: not-allowed;
     }
   `,
   confirmar: css`
     background-color: transparent;
-    color: #28a745;
-    border: 2px solid #28a745;
+    color: ${colors.verdeConfirmacao};
+    border: 2px solid ${colors.verdeConfirmacao};
 
     margin: 4px 8px;
     padding: 6px 12px;
@@ -116,15 +116,15 @@ const estilos = {
     }
 
     &:disabled {
-      color: #999;
-      border-color: #ccc;
+      color: ${colors.cinzaEscuro};
+      border-color: ${colors.cinzaIntermediario};
       cursor: not-allowed;
     }
   `,
   cancelar: css`
     background-color: transparent;
-    color: #dc3545;
-    border: 2px solid #dc3545;
+    color: ${colors.vermelhoAlerta};
+    border: 2px solid ${colors.vermelhoAlerta};
 
     margin: 4px 8px;
     padding: 6px 12px;
@@ -141,18 +141,18 @@ const estilos = {
     }
 
     &:disabled {
-      color: #999;
-      border-color: #ccc;
+      color: ${colors.cinzaEscuro};
+      border-color: ${colors.cinzaIntermediario};
       cursor: not-allowed;
     }
   `
 }
 
-const StyledButton = styled.button<{ variante: keyof typeof estilos }>`
+const StyledButton = styled.button<{ $variante: keyof typeof estilos }>`
   border-radius: 50px;
   font-weight: bold;
   transition: all 0.15s ease-in-out;
-  ${(props) => estilos[props.variante]}
+  ${(props) => estilos[props.$variante]}
 
   &:focus {
     outline: none;
@@ -171,7 +171,7 @@ const Botao: React.FC<BotaoProps> = ({
   ...rest
 }) => {
   return (
-    <StyledButton variante={variante} {...rest}>
+    <StyledButton $variante={variante} {...rest}>
       {children}
     </StyledButton>
   )

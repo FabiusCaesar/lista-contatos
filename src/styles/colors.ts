@@ -2,19 +2,18 @@ const colors = {
   azulPrincipal: '#007bff',
   azulHover: '#0056b3',
   azulMarinho: '#00264d',
+  azulCardSelect: '#e6f0ff',
 
   verdeConfirmacao: '#28a745',
-  verdeHover: '#218838',
 
   vermelhoAlerta: '#dc3545',
-  vermelhoHover: '#c82333',
 
   textoClaro: '#ffffff',
   textoEscuro: '#333333',
 
   cinzaClaro: '#f8f9fa',
   cinzaIntermediario: '#ccc',
-  cinzaEscuro: '#6c757d',
+  cinzaEscuro: '#999',
 
   fundo: '#f9f9f9'
 }

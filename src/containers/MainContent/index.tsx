@@ -6,7 +6,7 @@ import {
   MainContentLayout,
   BotaoMenuMobile,
   TopoFixo,
-  BotaoRemover
+  Footer
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -98,6 +98,13 @@ const MainContent: React.FC<MainContentProps> = ({
           ))
         )}
       </Contatos>
+
+      <Footer>
+        <p>
+          © {new Date().getFullYear()} Lista de Contatos. Todos os direitos
+          reservados.
+        </p>
+      </Footer>
 
       <ConfirmationDialog // Modal de Confirmação
         open={confirmOpen}

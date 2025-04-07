@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import '@fontsource/roboto-mono' // Fonte monoespaçada para modo de edição
+import colors from '../../styles/colors'
 
 interface CardProps {
   $selecionado: boolean
@@ -7,7 +8,7 @@ interface CardProps {
 
 export const Card = styled.div<CardProps>`
   padding: 8px;
-  background-color: #f9f9f9;
+  background-color: ${colors.fundo};
   border: 2px solid transparent;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -18,8 +19,8 @@ export const Card = styled.div<CardProps>`
   ${({ $selecionado }) =>
     $selecionado &&
     css`
-      border: 2px solid #007bff;
-      background-color: #e6f0ff;
+      border: 2px solid ${colors.azulPrincipal};
+      background-color: ${colors.azulCardSelect};
     `}
 
   h3 {
@@ -34,7 +35,7 @@ export const Card = styled.div<CardProps>`
 
 export const Input = styled.input`
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid ${colors.cinzaIntermediario};
   padding: 4px;
   margin: 4px 0;
   width: 100%;
@@ -45,21 +46,6 @@ export const Input = styled.input`
   font-family: 'Roboto Mono';
 
   &:focus {
-    border-color: #007bff;
-  }
-`
-
-export const Button = styled.button`
-  margin: 4px 8px;
-  padding: 6px 12px;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
+    border-color: ${colors.azulPrincipal};
   }
 `

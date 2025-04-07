@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
+import colors from '../../styles/colors'
 
 export const FieldGroup = styled.div`
   display: flex;
@@ -24,11 +25,11 @@ export const Input = styled.input`
   width: 100%;
   padding: 8px;
   border-radius: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid ${colors.cinzaIntermediario};
   outline: none;
 
   &:focus {
-    border-color: #007bff; /* Cor de foco */
+    border-color: ${colors.azulPrincipal}; /* Cor de foco */
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Efeito de foco */
   }
 `
@@ -41,7 +42,7 @@ export const Form = styled.form`
   justify-content: center;
   gap: 2.5%; /* Espaço entre os campos proporcional à altura do pai */
   padding: 5%; /* Padding interno também proporcional */
-  background-color: #f9f9f9;
+  background-color: ${colors.fundo};
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 2%;

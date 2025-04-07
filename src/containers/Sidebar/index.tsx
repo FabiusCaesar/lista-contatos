@@ -1,7 +1,6 @@
 import { BotaoFechar, SidebarLayout } from './styles'
 import FormContato from './FormContato'
 import FormBusca from './FormBusca'
-import { useState } from 'react'
 import { Contato } from '../../models/Contatos'
 
 interface SidebarProps {

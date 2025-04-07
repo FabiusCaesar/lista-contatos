@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
+import colors from '../../styles/colors'
 
 export const MainContentLayout = styled.main`
   padding: 0;
@@ -58,22 +59,10 @@ export const BotaoMenuMobile = styled.button`
   }
 `
 
-export const BotaoRemover = styled.button`
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  margin: 0 24px;
-  cursor: pointer;
-
-  &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-
-  @media (max-width: ${breakpoints.mobile}) {
-    padding: 8px 8px;
-    margin: 0 8px;
-  }
+export const Footer = styled.footer`
+  text-align: center;
+  font-size: 0.75rem;
+  color: ${colors.cinzaEscuro};
+  margin-top: 32px;
+  padding-bottom: 16px;
 `

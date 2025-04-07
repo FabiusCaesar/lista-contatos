@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
+import colors from '../../styles/colors'
 
 export const SidebarLayout = styled.aside<{ $menuAberto: boolean }>`
   height: 100dvh;
@@ -8,7 +9,7 @@ export const SidebarLayout = styled.aside<{ $menuAberto: boolean }>`
   flex-direction: column;
   justify-content: flex-start;
   padding: 1rem;
-  background-color: #f9f9f9;
+  background-color: ${colors.fundo};
   //box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   gap: 2%;
 
